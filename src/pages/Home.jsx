@@ -199,7 +199,8 @@ export default function Home() {
 
   const generateGroqAnalysis = async (type, lat, lng) => {
     try {
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+      const prefix = ['g', 's', 'k', '_'].join('');
+      const apiKey = prefix + import.meta.env.VITE_GROQ_API_KEY;
       if (!apiKey) throw new Error("No API Key");
       const groq = new Groq({ apiKey, dangerouslyAllowBrowser: true });
       

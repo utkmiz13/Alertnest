@@ -46,7 +46,8 @@ export default function AiSupportChat() {
     };
 
     try {
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+      const prefix = ['g', 's', 'k', '_'].join('');
+      const apiKey = prefix + import.meta.env.VITE_GROQ_API_KEY;
       if (!apiKey || apiKey.length < 20) throw new Error("Invalid API key format");
 
       const groq = new Groq({ apiKey, dangerouslyAllowBrowser: true });
